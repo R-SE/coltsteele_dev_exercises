@@ -32,7 +32,7 @@ section {
   padding-bottom: 30%;
   float: left;
   margin: 1.66%;
-  background-color: blue;
+  background-color: white;
   transform: scale(1, 1) rotateY( -180deg );
   transform-style: preserve-3d;
   transition: all .3s ease-in-out;
