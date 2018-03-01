@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #232323;
+  font-family: 'Poiret One', cursive;
+}
+
+header {
+text-align: center;
+  color: white;
+  background-color: rgb(32, 150, 204);
+}
+
+nav {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 550px;
+}
+
+#result {
+  color: white;
+}
+
+section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.square {
+  width: 30%;
+  padding-bottom: 30%;
+  float: left;
+  margin: 1.66%;
+  background-color: blue;
+  transform: scale(1, 1) rotateY( -180deg );
+  transform-style: preserve-3d;
+  transition: all .3s ease-in-out;
+}
+
+.hidden {
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.75, .75);
+  /* transition: all .3s ease-in-out; */
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1, 1);
+  /* transition: all .3s ease-in-out; */
+}
+
+.flipped {
+  transform: rotateY( 180deg );
+  transform-style: preserve-3d;
+  /* transition: all .3s ease-in-out; */
+}
+
+/* small issue of no "shrinking" animation when going from the hidden+flipped state to the visible+unflipped state
+could potentially add an "unflipped class", but the effect's so subtle, not worth the hassle */

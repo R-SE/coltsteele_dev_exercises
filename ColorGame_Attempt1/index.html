@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Color Game! Play to win!</title>
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  <link href="colorgame.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <header id="display">
+    <h1>The Great RGB Color Game</h1>
+    <h1 id="color">Color To Match</h1>
+  </header>
+  <nav>
+    <button value="newColors">New Colors</button>
+    <span id="result"></span>
+    <div>
+      <button value="easy">Easy</button>
+      <button value="medium">Medium</button>
+      <button value="hard">Hard</button>
+    </div>
+  </nav>
+  <section>
+    <div class="square easy" id="0"></div>
+    <div class="square easy" id="1"></div>
+    <div class="square easy" id="2"></div>
+    <div class="square medium hidden" id="3"></div>
+    <div class="square medium hidden" id="4"></div>
+    <div class="square medium hidden" id="5"></div>
+    <div class="square hard hidden" id="6"></div>
+    <div class="square hard hidden" id="7"></div>
+    <div class="square hard hidden" id="8"></div>
+  </section>
+
+
+  <script src="colorgame.js" type="text/javascript"></script>
+</body>
+
+</html>
