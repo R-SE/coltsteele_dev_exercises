@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Click Events</title>
+  <style type="text/css">
+    .royalPurple {
+      background-color: purple;
+    }
+  </style>
+</head>
+<body>
+  <button id="clickme">CLICK ME!</button>
+  <script type="text/javascript">
+    var button = document.getElementById("clickme");
+    function purplize() {
+      document.body.classList.toggle("royalPurple");
+      // alert("hey");
+    }
+    button.addEventListener("click", purplize);
+  </script>
+</body>
+</html>

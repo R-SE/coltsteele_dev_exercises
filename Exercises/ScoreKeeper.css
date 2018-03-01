@@ -1,0 +1,15 @@
+.winner {
+  color: green;
+  font-size: 2em;
+}
+
+.loser {
+  color: red;
+  font-size: .7em;
+}
+
+/* #game {
+  width: 50%;
+  margin: auto;
+  display: inline;
+} */
