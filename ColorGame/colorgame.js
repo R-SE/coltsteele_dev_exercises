@@ -20,32 +20,48 @@ function generateColor() {
 }
 
 function pickSquare(num) {
-  var pickedId = Math.floor(Math.random() * num);
-  return document.getElementById(pickedId);
+  // var pickedId = Math.floor(Math.random() * num);
+  // return document.getElementById(pickedId);
+  return Math.floor(Math.random() * num);
 }
 
 function newColors() {
-  newGame(setDifficulty);
+  switch(setDifficulty) {
+    case 3:
+      activateEasy();
+      break;
+    case 6:
+      activateMedium();
+      break;
+    case 9:
+      activateHard();
+      break;
+    default:
+      activateEasy();
+  }
+}
+
+function resetStyles() {
+  resultsDisplay.innerHTML = "";
+  header.removeAttribute("style");
 }
 
 function newGame(difficulty) {
-  resultsDisplay.innerHTML = "";
-  console.log(`Difficulty is ${difficulty}`);                           //remove line after finished with testing
+  var squares = document.getElementsByClassName("square");
+  resetStyles();
 for (let i = 0; i < difficulty; i++) {
   squares[i].style.pointerEvents = "visible";
   // debugger;
   squares[i].classList.toggle("flipped");
   squares[i].style.backgroundColor = generateColor();
-  console.log(squares[i].style.backgroundColor);
 }
-  // for (let i = 0; i < squares.length; i++) {
-  //   squares[i].style.backgroundColor = generateColor();
-  //   squares[i].classList.toggle("flipped");
-  // }
-  var pickedSquare = pickSquare(difficulty);
-  console.log(pickedSquare);
-  var pickedColor = window.getComputedStyle(pickedSquare).getPropertyValue('background-color');
-  console.log(`Picked color is ${pickedColor}`);
+  var pickedSquareId = pickSquare(difficulty);
+  var pickedSquare = document.getElementById(pickedSquareId);
+  // var pickedSquare = pickSquare(difficulty);
+  var pickedColor = pickedSquare.style.backgroundColor;
+  // console.log(pickedSquare);  --small quirk here that shows the div of the square has having a bg-color attribute of the previous winning square, but doesn't affect the gameplay;
+  // console.log(pickedColor);
+  // var pickedColor = window.getComputedStyle(pickedSquare).getPropertyValue('background-color');
   colorTitle.innerHTML = pickedColor;
 }
 
@@ -61,9 +77,8 @@ function checkWin() {
     });
     colorTitle.innerHTML = `You found ${squareColor}. Start a new game!`;
   } else {
-    console.log(squareColor);
     resultsDisplay.innerHTML = "Try again...";
-    this.classList.add("hidden");
+    this.classList.replace("visible", "hidden");
   }
 }
 
@@ -118,4 +133,4 @@ Array.from(squares).forEach(function(e){
   e.addEventListener("click", checkWin);
 });
 
-newGame(3);
+activateEasy();
